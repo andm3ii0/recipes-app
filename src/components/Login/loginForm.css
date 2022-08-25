@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+}
+
+.login-page {
+  width: 100vw;
+  height: 100vh;
+  background: url('../../images/BG-Image.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+.login-page-blur {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(254, 255, 196, 0.5);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: brown;
+  background: rgba(223, 223, 223, 0.5);
+  backdrop-filter: blur(1px);
+  border-radius: 5px;
+}
+
+form p {
+  font-family: 'Quicksand', sans-serif;
+  color: #FFFFFF;
+}
+
+.inputs-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputs-form label {
+  display: flex;
+}
+
+label input {
+  font-family: 'Quicksand', sans-serif;
+  background-color: white;
+  border: none;
+  border-radius: 2px;
+}
+
+.button-form {
+  background: #ffffff;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Quicksand';
+  color: #a1a1a1;
+}
+
+
+
+
+@media only screen and (min-width : 320px) {
+  form {
+    width: 85%;
+    max-width: 400px;
+    height: 55%;
+    max-height: 450px;
+  }
+
+  form p {
+    font-weight: 600;
+    font-size: 36px;
+  }
+
+ 
+
+  .inputs-form {
+    width: 85%;
+    max-width: 380px;
+    gap: 40px;
+  }
+
+  .inputs-form label {
+    gap: 10px;
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  label img {
+    height: 30px;
+    width: 30px;
+  }
+
+  label input {
+    height: 30px;
+    width: 100%;
+    padding: 0 8px;
+    font-weight: 400;
+    font-size: 16px;
+  }
+
+  .button-form {
+    width: 103px;
+    height: 32px;
+    font-weight: 600;
+    font-size: 24px;
+  }
+}

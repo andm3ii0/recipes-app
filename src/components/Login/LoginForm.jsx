@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import './loginForm.css';
+import emailImage from '../../images/email.svg';
+import passwordImage from '../../images/password.svg';
 
 export default function LoginForm() {
   const [email, setEmail] = useState('');
@@ -16,27 +19,44 @@ export default function LoginForm() {
   };
 
   return (
-    <form>
-      <input
-        type="text"
-        value={ email }
-        data-testid="email-input"
-        onChange={ ({ target }) => setEmail(target.value) }
-      />
-      <input
-        type="text"
-        value={ password }
-        data-testid="password-input"
-        onChange={ ({ target }) => setPassword(target.value) }
-      />
-      <button
-        type="button"
-        data-testid="login-submit-btn"
-        disabled={ !(validationEmail && validationPassword) }
-        onClick={ handleClick }
-      >
-        Entrar
-      </button>
-    </form>
+
+    <div className="login-page-blur">
+      <form>
+        <p className="title">Login</p>
+        <div className="inputs-form">
+          <label htmlFor="email-input" className="email-input">
+            <img className="email" src={ emailImage } alt="email" />
+            <input
+              placeholder="Email"
+              type="text"
+              id="email-input"
+              value={ email }
+              data-testid="email-input"
+              onChange={ ({ target }) => setEmail(target.value) }
+            />
+          </label>
+          <label htmlFor="password-input" className="password-input">
+            <img className="password" src={ passwordImage } alt="password" />
+            <input
+              placeholder="Password"
+              type="password"
+              id="password-input"
+              value={ password }
+              data-testid="password-input"
+              onChange={ ({ target }) => setPassword(target.value) }
+            />
+          </label>
+        </div>
+        <button
+          className="button-form"
+          type="button"
+          data-testid="login-submit-btn"
+          disabled={ !(validationEmail && validationPassword) }
+          onClick={ handleClick }
+        >
+          Entrar
+        </button>
+      </form>
+    </div>
   );
 }
