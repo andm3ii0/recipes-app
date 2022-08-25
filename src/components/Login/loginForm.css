@@ -2,16 +2,15 @@
   margin: 0;
 }
 
-.login-page {
+.bg-image {
   width: 100vw;
   height: 100vh;
   background: url('../../images/BG-Image.png');
   background-size: cover;
   background-repeat: no-repeat;
-
 }
 
-.login-page-blur {
+.bg-blur {
   width: 100vw;
   height: 100vh;
   background: rgba(254, 255, 196, 0.5);
@@ -19,6 +18,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 form {

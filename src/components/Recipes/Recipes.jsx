@@ -4,9 +4,10 @@ import Context from '../../Context/Context';
 import fetchAPI from '../../services/fetchAPI';
 import FilterCategory from '../FilterCategory/FilterCategory';
 import RecipeCard from '../RecipeCard/RecipeCard';
+import SearchBar from '../SearchBar/SearchBar';
 
 export default function Recipes({ drink = false }) {
-  const { recipes, setRecipes } = useContext(Context);
+  const { recipes, setRecipes, showSearchInput } = useContext(Context);
 
   useEffect(() => {
     if (drink) {
@@ -26,7 +27,7 @@ export default function Recipes({ drink = false }) {
 
   return (
     <div>
-      <FilterCategory drink={ drink } />
+      { showSearchInput ? <SearchBar /> : <FilterCategory drink={ drink } /> }
       {recipes.map((element, index) => {
         if (index > +'11') return true;
         return (

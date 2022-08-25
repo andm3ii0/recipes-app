@@ -1,35 +1,29 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import profileIcon from '../../images/profileIcon.svg';
-import searchIcon from '../../images/searchIcon.svg';
-import SearchBar from '../SearchBar/SearchBar';
+import profileIcon from '../../images/perfil.svg';
+import searchIcon from '../../images/lupa.svg';
+import './index.css';
+import Context from '../../Context/Context';
 
 export default function Header({ pageTitle, searchIconRender = true }) {
-  const [showSearchInput, setShowSearchInput] = useState(false);
-
-  const onSearchIconClick = () => {
-    setShowSearchInput(!showSearchInput);
-  };
+  const { onSearchIconClick } = useContext(Context);
 
   return (
     <header>
-      <div>
-        <NavLink to="/profile">
-          <img
-            src={ profileIcon }
-            alt="profile"
-            data-testid="profile-top-btn"
-          />
-        </NavLink>
-        {searchIconRender && (
-          <button type="button" onClick={ onSearchIconClick }>
-            <img src={ searchIcon } alt="search" data-testid="search-top-btn" />
-          </button>
-        )}
-        { showSearchInput && <SearchBar /> }
-        <p data-testid="page-title">{pageTitle}</p>
-      </div>
+      <NavLink className="profile" to="/profile">
+        <img
+          src={ profileIcon }
+          alt="profile"
+          data-testid="profile-top-btn"
+        />
+      </NavLink>
+      <p className="page-title" data-testid="page-title">{pageTitle}</p>
+      {searchIconRender && (
+        <button className="searc" type="button" onClick={ onSearchIconClick }>
+          <img src={ searchIcon } alt="search" data-testid="search-top-btn" />
+        </button>
+      )}
     </header>
   );
 }

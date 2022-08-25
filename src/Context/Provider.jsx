@@ -9,6 +9,11 @@ export default function Provider({ children }) {
   const [recipes, setRecipes] = useState([]);
   const [showCopied, setShowCopied] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showSearchInput, setShowSearchInput] = useState(false);
+
+  const onSearchIconClick = () => {
+    setShowSearchInput(!showSearchInput);
+  };
 
   const shareButtonClick = async (match) => {
     copy(`http://localhost:3000${match.url}`);
@@ -49,6 +54,8 @@ export default function Provider({ children }) {
     isFavorite,
     setIsFavorite,
     favoriteButtonClick,
+    onSearchIconClick,
+    showSearchInput,
   };
 
   return <Context.Provider value={ context }>{children}</Context.Provider>;

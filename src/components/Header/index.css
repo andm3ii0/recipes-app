@@ -1,1 +1,38 @@
-/* oi */
+.bg-blur {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(30px);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100vw;
+  background: #EBEBEB;
+}
+
+header button {
+  background: none;
+  border: none;
+}
+
+button img {
+  width: 30px;
+  height: 30px;
+}
+
+.page-title {
+  font-family: 'Quicksand';
+  color: #000000;
+}
+
+@media only screen and (min-width : 320px) {
+  header {
+    height: 40px;
+  }
+
+  header .page-title {
+    font-weight: 500;
+    font-size: 32px;
+  }
+}

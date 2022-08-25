@@ -10,22 +10,32 @@ export default function FilterCategory({ drink }) {
 
   useEffect(() => {
     if (drink) {
-      return fetchAPI('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list').then((data) => setCategories(data.drinks));
+      return fetchAPI(
+        'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list',
+      ).then((data) => setCategories(data.drinks));
     }
-    fetchAPI('https://www.themealdb.com/api/json/v1/1/list.php?c=list').then((data) => setCategories(data.meals));
+    fetchAPI('https://www.themealdb.com/api/json/v1/1/list.php?c=list').then(
+      (data) => setCategories(data.meals),
+    );
     // eslint-disable-next-line
   }, []);
 
   const handleClick = (e) => {
     if (isFiltered !== e.target.name && e.target.name) {
       if (drink) {
-        return fetchAPI(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${e.target.name}`).then(
-          (data) => { setRecipes(data.drinks); setIsFiltered(e.target.name); },
-        );
+        return fetchAPI(
+          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${e.target.name}`,
+        ).then((data) => {
+          setRecipes(data.drinks);
+          setIsFiltered(e.target.name);
+        });
       }
-      return fetchAPI(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.target.name}`).then(
-        (data) => { setRecipes(data.meals); setIsFiltered(e.target.name); },
-      );
+      return fetchAPI(
+        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${e.target.name}`,
+      ).then((data) => {
+        setRecipes(data.meals);
+        setIsFiltered(e.target.name);
+      });
     }
     if (drink) {
       return fetchAPI(
@@ -45,20 +55,6 @@ export default function FilterCategory({ drink }) {
 
   return (
     <div>
-      {categories && categories.map(({ strCategory }, index) => {
-        if (index > +'4') return true;
-        return (
-          <button
-            data-testid={ `${strCategory}-category-filter` }
-            key={ `strCategory ${index}` }
-            name={ strCategory }
-            type="button"
-            onClick={ async (e) => handleClick(e) }
-          >
-            {strCategory}
-          </button>
-        );
-      })}
       <button
         type="button"
         data-testid="All-category-filter"
@@ -66,6 +62,21 @@ export default function FilterCategory({ drink }) {
       >
         All
       </button>
+      {categories
+        && categories.map(({ strCategory }, index) => {
+          if (index > +'4') return true;
+          return (
+            <button
+              data-testid={ `${strCategory}-category-filter` }
+              key={ `strCategory ${index}` }
+              name={ strCategory }
+              type="button"
+              onClick={ async (e) => handleClick(e) }
+            >
+              {strCategory}
+            </button>
+          );
+        })}
     </div>
   );
 }
