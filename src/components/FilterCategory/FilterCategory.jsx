@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState, useContext } from 'react';
 import Context from '../../Context/Context';
 import fetchAPI from '../../services/fetchAPI';
+import icons from '../../images/iconCategories';
+import './filter.css';
 
 export default function FilterCategory({ drink }) {
   const [categories, setCategories] = useState([]);
@@ -54,12 +56,14 @@ export default function FilterCategory({ drink }) {
   };
 
   return (
-    <div>
+    <div className="filter">
       <button
+        className="all"
         type="button"
         data-testid="All-category-filter"
         onClick={ (e) => handleClick(e) }
       >
+        <img src={ icons.cutlery } alt="All" />
         All
       </button>
       {categories
@@ -71,8 +75,10 @@ export default function FilterCategory({ drink }) {
               key={ `strCategory ${index}` }
               name={ strCategory }
               type="button"
+              className={ strCategory }
               onClick={ async (e) => handleClick(e) }
             >
+              <img src={ icons[strCategory] } alt={ strCategory } />
               {strCategory}
             </button>
           );
