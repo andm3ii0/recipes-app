@@ -5,6 +5,7 @@ import fetchAPI from '../../services/fetchAPI';
 import FilterCategory from '../FilterCategory/FilterCategory';
 import RecipeCard from '../RecipeCard/RecipeCard';
 import SearchBar from '../SearchBar/SearchBar';
+import './recipes.css';
 
 export default function Recipes({ drink = false }) {
   const { recipes, setRecipes, showSearchInput } = useContext(Context);
@@ -27,18 +28,20 @@ export default function Recipes({ drink = false }) {
 
   return (
     <div>
-      { showSearchInput ? <SearchBar /> : <FilterCategory drink={ drink } /> }
-      {recipes.map((element, index) => {
-        if (index > +'11') return true;
-        return (
-          <RecipeCard
-            key={ index }
-            recipe={ element }
-            index={ index }
-            drink={ drink }
-          />
-        );
-      })}
+      {showSearchInput ? <SearchBar /> : <FilterCategory drink={ drink } />}
+      <div className="manin-recipes-list">
+        {recipes.map((element, index) => {
+          if (index > +'11') return true;
+          return (
+            <RecipeCard
+              key={ index }
+              recipe={ element }
+              index={ index }
+              drink={ drink }
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }

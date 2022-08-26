@@ -1,8 +1,14 @@
-/* css */
 footer {
+  position: fixed;
   bottom: 0;
   display: flex;
   justify-content: space-around;
-  position: fixed;
-  width: 100%;
+  width: 100vw;
+  height: 45px;
+  background: #EBEBEB;
+}
+
+footer img {
+  width: 40px;
+  height: 45px;
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import FoodHeaderDetails from '../FoodHeaderDetails/FoodHeaderDetails';
@@ -6,10 +6,9 @@ import DrinkHeaderDetails from '../DrinkHeaderDetails/DrinkHeaderDetails';
 import requestDetails from '../../services/requestDetais';
 import videoId from '../../services/youtubeVideoID';
 import requestRecomendation from '../../services/requestRecomendation';
-import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../../images/blackHeartIcon.svg';
+
 import './recipesDetails.css';
-import Context from '../../Context/Context';
+import RecipeCard from '../RecipeCard/RecipeCard';
 
 function RecipeDetails({ match }) {
   const [typePage, setTypePage] = useState('');
@@ -18,28 +17,17 @@ function RecipeDetails({ match }) {
   const [recomendation, setRecomendation] = useState([1]);
   const [doneRecipe, setDoneRecipe] = useState(false);
   const [inProgress, setInProgress] = useState(false);
-  const {
-    showCopied,
-    shareButtonClick,
-    isFavorite,
-    setIsFavorite,
-    favoriteButtonClick,
-  } = useContext(Context);
 
   useEffect(() => {
     requestDetails(setDeatils, setTypePage, setIngredientList, match);
     const doneRecipesArray = localStorage.getItem('doneRecipes');
     const inProgresArray = localStorage.getItem('inProgressRecipes');
-    const favoriteArray = localStorage.getItem('favoriteRecipes');
 
     if (doneRecipesArray !== null) {
       setDoneRecipe(doneRecipesArray.includes(match.params.id));
     }
     if (inProgresArray !== null) {
       setInProgress(inProgresArray.includes(match.params.id));
-    }
-    if (favoriteArray !== null) {
-      setIsFavorite(favoriteArray.includes(match.params.id));
     }
 
     if (match.url.includes('food')) {
@@ -54,45 +42,49 @@ function RecipeDetails({ match }) {
 
   const history = useHistory();
 
-  const objShape = {
-    alcoholicOrNot: typePage === 'drink' ? details.strAlcoholic : '',
-    category: details.strCategory,
-    id: typePage === 'drink' ? details.idDrink : details.idMeal,
-    image:
-      typePage === 'drink' ? details.strDrinkThumb : details.strMealThumb,
-    name: typePage === 'drink' ? details.strDrink : details.strMeal,
-    nationality: typePage === 'drink' ? '' : details.strArea,
-    type: typePage,
-  };
-
   return (
-    <main>
-      {typePage === 'food' && <FoodHeaderDetails details={ details } />}
-      {typePage === 'drink' && <DrinkHeaderDetails details={ details } />}
-      <ul className="ingredinents">
-        {ingredientList.map((ingredient, index) => {
-          const condicao = ingredient !== 'null - null' && ingredient !== '  - ';
-          return (
-            condicao && (
-              <li
-                key={ ingredient }
-                data-testid={ `${index}-ingredient-name-and-measure` }
-              >
-                {ingredient}
-              </li>
-            )
-          );
-        })}
-      </ul>
-      <p data-testid="instructions">{details.strInstructions}</p>
+    <main className="recipe-details">
+      {typePage === 'food' && <FoodHeaderDetails details={ details } match={ match } />}
+      {typePage === 'drink' && <DrinkHeaderDetails details={ details } match={ match } />}
+      <div className="recipe-content">
+        <div className="ingredients">
+          <div>
+            <p>Ingredients</p>
+            <ul className="ingredinents">
+              {ingredientList.map((ingredient, index) => {
+                const condicao = ingredient !== 'null - null' && ingredient !== '  - ';
+                return (
+                  condicao && (
+                    <li
+                      key={ ingredient }
+                      data-testid={ `${index}-ingredient-name-and-measure` }
+                    >
+                      {ingredient}
+                    </li>
+                  )
+                );
+              })}
+            </ul>
+          </div>
+        </div>
+        <div className="instructions">
+          <div>
+            <p className="title">instructions</p>
+            <p data-testid="instructions-p">{details.strInstructions}</p>
+          </div>
+        </div>
+      </div>
       {typePage === 'food' && (
-        <iframe
-          data-testid="video"
-          title={ details.strMeal }
-          width="420"
-          height="315"
-          src={ `https://www.youtube.com/embed/${videoId(details.strYoutube)}` }
-        />
+        <div className="video-content">
+          <p>Video</p>
+          <div className="video">
+            <iframe
+              data-testid="video"
+              title={ details.strMeal }
+              src={ `https://www.youtube.com/embed/${videoId(details.strYoutube)}` }
+            />
+          </div>
+        </div>
       )}
       <ul className="recomendationList">
         {recomendation.map(
@@ -102,7 +94,13 @@ function RecipeDetails({ match }) {
               key={ `${index}-recomendation-card` }
               data-testid={ `${index}-recomendation-card` }
             >
-              {typePage === 'food' && (
+              <RecipeCard
+                key={ index }
+                recipe={ item }
+                index={ index }
+                drink={ typePage !== 'drink' }
+              />
+              {/* {typePage === 'food' && (
                 <p data-testid={ `${index}-recomendation-title` }>
                   {item.strDrink}
                 </p>
@@ -111,27 +109,11 @@ function RecipeDetails({ match }) {
                 <p data-testid={ `${index}-recomendation-title` }>
                   {item.strMeal}
                 </p>
-              )}
+              )} */}
             </li>
           ),
         )}
       </ul>
-      {showCopied && <p className="copied-message">Link copied!</p>}
-      <button
-        data-testid="share-btn"
-        type="button"
-        onClick={ () => shareButtonClick(match) }
-      >
-        Share
-      </button>
-      <button
-        src={ isFavorite ? blackHeartIcon : whiteHeartIcon }
-        data-testid="favorite-btn"
-        type="button"
-        onClick={ () => favoriteButtonClick(objShape, match.params.id) }
-      >
-        <img src={ isFavorite ? blackHeartIcon : whiteHeartIcon } alt="heart" />
-      </button>
       {!doneRecipe && (
         <button
           className="start-recipe-btn"

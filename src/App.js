@@ -5,11 +5,7 @@ import Routes from './Routes/Routes';
 function App() {
   return (
     <BrowserRouter>
-      <div className="bg-image">
-        {/* <div className="bg-blur"> */}
-        <Routes />
-        {/* </div> */}
-      </div>
+      <Routes />
     </BrowserRouter>
   );
 }

@@ -19,43 +19,45 @@ export default function LoginForm() {
   };
 
   return (
-
-    <form>
-      <p className="title">Login</p>
-      <div className="inputs-form">
-        <label htmlFor="email-input" className="email-input">
-          <img className="email" src={ emailImage } alt="email" />
-          <input
-            placeholder="Email"
-            type="text"
-            id="email-input"
-            value={ email }
-            data-testid="email-input"
-            onChange={ ({ target }) => setEmail(target.value) }
-          />
-        </label>
-        <label htmlFor="password-input" className="password-input">
-          <img className="password" src={ passwordImage } alt="password" />
-          <input
-            placeholder="Password"
-            type="password"
-            id="password-input"
-            value={ password }
-            data-testid="password-input"
-            onChange={ ({ target }) => setPassword(target.value) }
-          />
-        </label>
+    <div className="bg-image">
+      <div className="bg-blur">
+        <form>
+          <p className="title">Login</p>
+          <div className="inputs-form">
+            <label htmlFor="email-input" className="email-input">
+              <img className="email" src={ emailImage } alt="email" />
+              <input
+                placeholder="Email"
+                type="text"
+                id="email-input"
+                value={ email }
+                data-testid="email-input"
+                onChange={ ({ target }) => setEmail(target.value) }
+              />
+            </label>
+            <label htmlFor="password-input" className="password-input">
+              <img className="password" src={ passwordImage } alt="password" />
+              <input
+                placeholder="Password"
+                type="password"
+                id="password-input"
+                value={ password }
+                data-testid="password-input"
+                onChange={ ({ target }) => setPassword(target.value) }
+              />
+            </label>
+          </div>
+          <button
+            className="button-form"
+            type="button"
+            data-testid="login-submit-btn"
+            disabled={ !(validationEmail && validationPassword) }
+            onClick={ handleClick }
+          >
+            Entrar
+          </button>
+        </form>
       </div>
-      <button
-        className="button-form"
-        type="button"
-        data-testid="login-submit-btn"
-        disabled={ !(validationEmail && validationPassword) }
-        onClick={ handleClick }
-      >
-        Entrar
-      </button>
-    </form>
-
+    </div>
   );
 }

@@ -1,0 +1,51 @@
+.main-card-recipe {
+    width: 200px;
+    height: 170px;
+    border-radius: 5px;
+    margin: 0 5px 0;
+    background-color: #EBEBEB;
+}
+
+.main-card-recipe img {
+    width: 200px;
+    height: 135px;
+    object-fit: cover;
+    object-position: 20% 10%;
+    border-radius: 5px 5px 0 0;
+}
+
+.main-card-recipe h3 {
+    font-family: 'Quicksand';
+    font-weight: 600;
+    font-size: 22px;
+    color: #000000;
+    padding: 0px 0 0 20px;
+}
+
+.main-card-recipe-footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-recipe-card-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+  }
+  
+  .main-recipe-card-buttons button {
+    background-color: transparent;
+    border: none;
+    padding: 0 0 0 8px;
+  }
+  
+  .main-recipe-card-buttons button img {
+    width: 29px;
+    height: 29px;
+    margin: 0;
+    padding: 0;
+  }

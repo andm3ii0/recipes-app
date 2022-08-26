@@ -1,0 +1,26 @@
+.manin-recipes-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 50px;
+}
+
+
+.manin-recipes-list .main-card-recipe {
+    width: 162px;
+    height: 170px;
+    border-radius: 5px;
+    margin: 0 5px 8px;
+    background-color: white;
+}
+
+.manin-recipes-list .main-card-recipe img {
+    width: 162px;
+    height: 135px;
+    object-fit: cover;
+    object-position: 20% 10%;
+    border-radius: 5px 5px 0 0;
+}
