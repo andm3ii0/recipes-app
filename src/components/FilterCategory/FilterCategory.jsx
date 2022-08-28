@@ -63,7 +63,7 @@ export default function FilterCategory({ drink }) {
         data-testid="All-category-filter"
         onClick={ (e) => handleClick(e) }
       >
-        <img src={ icons.cutlery } alt="All" />
+        <img src={ drink ? icons.drink : icons.cutlery } alt="All" />
         All
       </button>
       {categories
@@ -79,7 +79,7 @@ export default function FilterCategory({ drink }) {
               onClick={ async (e) => handleClick(e) }
             >
               <img src={ icons[strCategory] } alt={ strCategory } />
-              {strCategory}
+              {strCategory === 'Other/Unknown' ? 'Outher' : strCategory}
             </button>
           );
         })}

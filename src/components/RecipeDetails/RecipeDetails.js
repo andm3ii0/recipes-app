@@ -52,7 +52,8 @@ function RecipeDetails({ match }) {
             <p>Ingredients</p>
             <ul className="ingredinents">
               {ingredientList.map((ingredient, index) => {
-                const condicao = ingredient !== 'null - null' && ingredient !== '  - ';
+                const condicao = ingredient !== 'null - null'
+                  && !(ingredient === ' - ' || ingredient === '  - ');
                 return (
                   condicao && (
                     <li

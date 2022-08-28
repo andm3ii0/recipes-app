@@ -9,7 +9,7 @@ export default function Foods() {
   const { searchResult } = useContext(Context);
   return (
     <div className="bg-image">
-      <div className="bg-blur">
+      <div className="bg-blur-recipes">
         <div>
           <Header pageTitle="Foods" />
 

@@ -1,0 +1,110 @@
+.profile-page {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 24px;
+  gap: 48px;
+}
+
+.profile-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 95%;
+}
+
+.profile-email,
+.profile-user,
+.profile-password {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px white solid;
+}
+
+.email-content,
+.user-content,
+.password-content {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+.email-content p,
+.user-content p,
+.password-content p {
+  font-family: 'Quicksand';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000000;
+}
+
+.email-content input,
+.user-content input,
+.password-content input {
+  font-family: 'Quicksand';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 25px;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  width: 70vw;
+  padding: 0;
+}
+
+.email-content .email-title,
+.user-content .user-title,
+.password-content .password-title {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.profile-email button,
+.profile-user button,
+.profile-password button {
+  width: 58px;
+  height: 25px;
+  background: #FFFFFF;
+  border-radius: 5px;
+  border: none;
+  font-family: 'Quicksand';
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  margin-right: 5px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.profile-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 95%;
+}
+
+.profile-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 339px;
+  height: 37px;
+  border: none;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Quicksand';
+  font-weight: 500;
+  font-size: 20px;
+  color: #000000;
+}

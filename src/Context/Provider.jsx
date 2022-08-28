@@ -10,6 +10,7 @@ export default function Provider({ children }) {
   const [showCopied, setShowCopied] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [showSearchInput, setShowSearchInput] = useState(false);
+  const [idCopied, setIdCopied] = useState('');
 
   const onSearchIconClick = () => {
     setShowSearchInput(!showSearchInput);
@@ -19,6 +20,7 @@ export default function Provider({ children }) {
     copy(`http://localhost:3000${match.url}`);
     setShowCopied(true);
     setTimeout(() => setShowCopied(false), +'3000');
+    setIdCopied(match.url.split('/')[2]);
   };
 
   const favoriteButtonClick = (objShape, id) => {
@@ -56,6 +58,7 @@ export default function Provider({ children }) {
     favoriteButtonClick,
     onSearchIconClick,
     showSearchInput,
+    idCopied,
   };
 
   return <Context.Provider value={ context }>{children}</Context.Provider>;

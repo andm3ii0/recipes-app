@@ -24,3 +24,12 @@
     object-position: 20% 10%;
     border-radius: 5px 5px 0 0;
 }
+
+.bg-blur-recipes {
+    width: 100%;
+    height: 100%;
+    background: rgba(254, 255, 196, 0.5);
+    backdrop-filter: blur(20px);
+    overflow: scroll;
+    overflow-x: hidden;
+  }

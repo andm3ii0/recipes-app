@@ -9,7 +9,7 @@ export default function Drinks() {
   const { searchResult } = useContext(Context);
   return (
     <div className="bg-image">
-      <div className="bg-blur">
+      <div className="bg-blur-recipes">
         <div>
           <Header pageTitle="Drinks" />
           { searchResult.length > 0 ? searchResult
@@ -24,9 +24,9 @@ export default function Drinks() {
                   <h3 data-testid={ `${index}-card-name` }>{ strDrink }</h3>
                 </div>
               ))) : <Recipes drink /> }
-          <Footer />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
