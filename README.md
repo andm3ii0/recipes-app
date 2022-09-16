@@ -30,7 +30,7 @@ Depois de ter os arquivos na sua máquina instale as dependências usando:
 npm install
 ```
 
-Depois de terminado o processo de instalção use:
+Depois de terminado o processo de instalação use:
 
 ```
 npm start
