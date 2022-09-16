@@ -8,6 +8,8 @@ e fotos do prato/bebida finalizado. Dossui uma tela de login simples com valida�
 e qualquer senha desque com mais de 6 caracteres. Conta também com uma tela de preparo da receita onde é possivel acompanhar o progresso,
 uma tela de gerenciamento de receitas favoritadas e já finalizadas, e uma tela para gerenciamento de perfil e logout.
 
+Você pode ver a aplicação rodando [aqui](https://andm3ii0.github.io/app-de-receitas/)
+
 ## 🚀 Começando
 
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
