@@ -1,6 +1,6 @@
 # Recipes App
 
-Um aplicativo de receitas desenvolvido em grupo para testar o conhecimento e habilidades dos integrantes como, React, JS, HTML, CSS, Git, Scrum etc.
+Uma aplicação mobile desenvolvida em grupo para testar o conhecimento e habilidades dos integrantes como, React, JS, HTML, CSS, Git, Scrum etc.
 
 A aplicação cosiste em um aplicativo ende é possivel fazer buscas por receitas de alimentos e bebidas.
 Conta com uma página de detalhes para cada receita. é possivel compartilhar e favoritar os itens. As receitas cotam com videos explicativos
