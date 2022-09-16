@@ -24,6 +24,12 @@ Node v16
 
 Você precisa clonar ou fazer o download do repositório antes de começar.
 
+Para clonar o repositório use:
+
+```
+git clone git@github.com:andm3ii0/recipes-app.git
+```
+
 Depois de ter os arquivos na sua máquina instale as dependências usando:
 
 ```
