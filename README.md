@@ -14,7 +14,7 @@ Essas instruções permitirão que você obtenha uma cópia do projeto em opera�
 
 ### 📋 Pré-requisitos
 
-De que coisas você precisa para instalar o software e como instalá-lo?
+O que você precisa para rodar a aplicação?
 
 ```
 Node v16
